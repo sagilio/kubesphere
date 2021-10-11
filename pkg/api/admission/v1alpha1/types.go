@@ -18,7 +18,7 @@ package v1alpha1
 
 import (
 	"errors"
-	apiextensionsv1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
+	"k8s.io/apiextensions-apiserver/pkg/apis/apiextensions"
 	utilerrors "k8s.io/apimachinery/pkg/util/errors"
 	"regexp"
 )
@@ -124,8 +124,8 @@ type Parameters struct {
 }
 
 type Validation struct {
-	OpenAPIV3Schema *apiextensionsv1.JSONSchemaProps `json:"openAPIV3Schema,omitempty"`
-	LegacySchema    bool                             `json:"legacySchema,omitempty"`
+	OpenAPIV3Schema *apiextensions.JSONSchemaProps `json:"openAPIV3Schema,omitempty"`
+	LegacySchema    bool                           `json:"legacySchema,omitempty"`
 }
 
 func (r *PostPolicy) Validate() error {
